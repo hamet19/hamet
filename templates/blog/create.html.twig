@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% form_theme formarticle 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<h1>Creation D'un Article !!</h1>
+
+{{ form_start(formarticle) }}
+{{ form_row(formarticle.title,{'label':'Title','attr':{'placeholder':'Titre de l\'Article'}}) }}
+{{ form_row(formarticle.category) }}
+{{ form_row(formarticle.content,{'label':'Description','attr':{'placeholder':'description de l\'article...'}}) }}
+{{ form_row(formarticle.image,{'label':'Image','attr':{'placeholder':'mettre le lien de l\'image...'}}) }}
+<button class="btn btn-success" type="submit">
+{% if editMod %}
+Enregistrer Les Modifications
+{% else %}
+Creer un Article
+{% endif %}
+</button>
+{{ form_end(formarticle) }}
+{% endblock %}
